@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         primarySwatch: Colors.indigo,
-        backgroundColor: Colors.black38,
       ),
       home: const MyHomePage(), //title: 'Notas'
     );
@@ -32,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool presao = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,22 +42,78 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              const Text(
+                'Bem-vindo ',
+                textAlign: TextAlign.center,
+                //  overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                  color: Colors.blue,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                'Faça login para continuar',
+                style: TextStyle(
+                  color: Colors.black26,
+                  fontSize: 30,
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
               const Icon(
                 Icons.account_circle,
                 size: 180,
+                color: Colors.blueAccent,
+              ),
+              const SizedBox(
+                height: 55,
               ),
               TextFormField(
+                autofocus: true,
                 decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.person), hintText: "User"),
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.person, color: Colors.blueAccent),
+                    hintText: "User",
+                    label: Text('User')),
               ),
               const SizedBox(
                 height: 50,
               ),
               TextFormField(
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.key),
-                    suffixIcon: Icon(Icons.visibility),
-                    hintText: ("Senha")),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.key, color: Colors.blueAccent),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      if (presao == true) {
+                        presao = false;
+                      } else {
+                        presao = true;
+                      }
+                    },
+                    icon: Icon(Icons.visibility),
+                  ),
+                  hintText: "Senha",
+                  label: Text('Senha'),
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  const Text(
+                    textAlign: TextAlign.right,
+                    'esqueceu a senha?',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 50,
@@ -65,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -81,6 +137,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 40,
+              ),
+              RichText(
+                text: TextSpan(
+                  text: 'Ainda não tem conta? ',
+                  style: TextStyle(color: Colors.black26),
+                  children: const <TextSpan>[
+                    TextSpan(
+                        text: 'cliqui aqui para criar conta',
+                        style: TextStyle(color: Colors.blueAccent)),
+                  ],
+                ),
+              )
             ],
           ),
         ),
