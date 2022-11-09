@@ -85,21 +85,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 50,
               ),
               TextFormField(
+                obscureText: presao,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.key, color: Colors.blueAccent),
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.key, color: Colors.blueAccent),
                   suffixIcon: IconButton(
                     onPressed: () {
-                      if (presao == true) {
-                        presao = false;
-                      } else {
-                        presao = true;
-                      }
+                      setState(() {
+                        presao = !presao;
+                      });
                     },
-                    icon: Icon(Icons.visibility),
+                    icon: Icon(
+                      presao ? Icons.visibility_off : Icons.visibility,
+                      color: Colors.blue,
+                    ),
                   ),
                   hintText: "Senha",
-                  label: Text('Senha'),
+                  label: const Text('Senha'),
                 ),
               ),
               const SizedBox(
@@ -107,8 +109,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  const Text(
+                children: const <Widget>[
+                  Text(
                     textAlign: TextAlign.right,
                     'esqueceu a senha?',
                     style: TextStyle(color: Colors.blue),
@@ -141,10 +143,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 40,
               ),
               RichText(
-                text: TextSpan(
+                text: const TextSpan(
                   text: 'Ainda não tem conta? ',
                   style: TextStyle(color: Colors.black26),
-                  children: const <TextSpan>[
+                  children: <TextSpan>[
                     TextSpan(
                         text: 'cliqui aqui para criar conta',
                         style: TextStyle(color: Colors.blueAccent)),
