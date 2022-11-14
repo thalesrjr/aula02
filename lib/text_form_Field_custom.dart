@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class TextFormFieldCustom extends StatefulWidget {
   final String description;
+  final String label;
   final Widget prefixIcon;
   bool? presao = true;
   Widget? suffixIcon;
@@ -9,6 +10,7 @@ class TextFormFieldCustom extends StatefulWidget {
   TextFormFieldCustom(
       {super.key,
       this.presao,
+      required this.label,
       required this.description,
       required this.prefixIcon,
       this.suffixIcon});
@@ -27,7 +29,7 @@ class _TextFormFieldCustomState extends State<TextFormFieldCustom> {
         prefixIcon: widget.prefixIcon,
         suffixIcon: widget.suffixIcon ?? const SizedBox(),
         hintText: widget.description,
-        label: Text(widget.description),
+        label: Text(widget.label),
       ),
     );
   }

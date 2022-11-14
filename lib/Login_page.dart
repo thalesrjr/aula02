@@ -2,16 +2,16 @@ import 'package:aula02/eleveted_button_custom.dart';
 import 'package:aula02/text_form_Field_custom.dart';
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
+class LoginPage extends StatefulWidget {
+  const LoginPage({
     super.key,
   });
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoginPageState extends State<LoginPage> {
   bool presao = true;
   @override
   Widget build(BuildContext context) {
@@ -55,13 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 55,
               ),
               TextFormFieldCustom(
-                  description: 'User',
-                  prefixIcon: Icon(Icons.person, color: Colors.blueAccent)),
+                description: 'User',
+                prefixIcon: Icon(Icons.person, color: Colors.blueAccent),
+                label: 'User',
+              ),
               const SizedBox(
                 height: 50,
               ),
               TextFormFieldCustom(
                 presao: presao,
+                label: "Senha",
                 description: 'Senha',
                 prefixIcon: const Icon(Icons.key, color: Colors.blueAccent),
                 suffixIcon: IconButton(
