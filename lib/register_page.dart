@@ -80,7 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 10,
               ),
               const Divider(thickness: 4),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               const Text("Gênero",
@@ -114,16 +114,20 @@ class _RegisterPageState extends State<RegisterPage> {
                             genero = topera;
                           });
                         }),
-                  )
+                  ),
                 ],
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(thickness: 4),
 
               /* TextFormFieldCustom(
                 description: 'User',
                 prefixIcon: Icon(Icons.person, color: Colors.blueAccent),
                 label: "Nome completo",
               ),*/
-              const SizedBox(
+              /* const SizedBox(
                 height: 50,
               ),
               TextFormFieldCustom(
@@ -142,37 +146,136 @@ class _RegisterPageState extends State<RegisterPage> {
                     color: Colors.blue,
                   ),
                 ),
-              ),
+              ),*/
               const SizedBox(
                 height: 5,
               ),
+              TextFormFieldCustom(
+                  label: "Telefone",
+                  description: "(63)99999-9999",
+                  prefixIcon: const Icon(
+                    Icons.local_phone,
+                    size: 30,
+                    color: Colors.black,
+                  )),
+              const SizedBox(
+                height: 10,
+              ),
+              TextFormFieldCustom(
+                  label: "Data de Nascimento",
+                  description: "00/00//0000",
+                  prefixIcon: const Icon(
+                    Icons.calendar_today,
+                    size: 30,
+                    color: Colors.black,
+                  )),
+              const SizedBox(
+                height: 10,
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: const <Widget>[
-                  Text(
-                    textAlign: TextAlign.right,
-                    'esqueceu a senha?',
-                    style: TextStyle(color: Colors.blue),
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormFieldCustom(
+                        label: "email@senai.com.br",
+                        description: "Ex: palmas",
+                        prefixIcon: const Icon(
+                          Icons.location_city_outlined,
+                          size: 30,
+                          color: Colors.black,
+                        )),
                   ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.35,
+                      child: TextFormFieldCustom(
+                        label: "Estado",
+                        description: "Ex: To",
+                        prefixIcon: const Icon(
+                          Icons.add_rounded,
+                          size: 1,
+                        ),
+                      )),
                 ],
               ),
               const SizedBox(
-                height: 50,
+                height: 10,
               ),
-              ElevatedButtonCustom(description: "Login"),
+              const Divider(
+                thickness: 4,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextFormFieldCustom(
+                presao: presao,
+                label: "Senha",
+                description: "",
+                prefixIcon:
+                    const Icon(Icons.key, size: 30, color: Colors.black),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      presao = !presao;
+                    });
+                  },
+                  icon: Icon(
+                    presao ? Icons.visibility_off : Icons.visibility,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextFormFieldCustom(
+                presao: presao,
+                label: "Repetir Senha",
+                description: "",
+                prefixIcon:
+                    const Icon(Icons.key, size: 30, color: Colors.black),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      presao = !presao;
+                    });
+                  },
+                  icon: Icon(
+                    presao ? Icons.visibility_off : Icons.visibility,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
               const SizedBox(
                 height: 40,
               ),
-              RichText(
-                text: const TextSpan(
-                  text: 'Ainda não tem conta? ',
-                  style: TextStyle(color: Colors.black26),
-                  children: <TextSpan>[
-                    TextSpan(
-                        text: 'cliqui aqui para criar conta',
-                        style: TextStyle(color: Colors.blueAccent)),
-                  ],
-                ),
+              const ElevatedButtonCustom(
+                description: "Criar Conta",
+                vertical: 25,
+                horizontal: 100,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.check_circle, color: Colors.blue),
+                  RichText(
+                    text: const TextSpan(
+                      text: 'Esta de acordo com os  ',
+                      style: TextStyle(color: Colors.black26),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'termos e obrigações',
+                            style: TextStyle(color: Colors.blueAccent)),
+                      ],
+                    ),
+                  ),
+                ],
               )
             ],
           ),

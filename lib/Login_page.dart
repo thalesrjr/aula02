@@ -16,7 +16,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(title: const Text('Notas'), centerTitle: true),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -26,7 +25,6 @@ class _LoginPageState extends State<LoginPage> {
               const Text(
                 'Bem-vindo ',
                 textAlign: TextAlign.center,
-                //  overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
@@ -56,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextFormFieldCustom(
                 description: 'User',
-                prefixIcon: Icon(Icons.person, color: Colors.blueAccent),
+                prefixIcon: const Icon(Icons.person, color: Colors.blueAccent),
                 label: 'User',
               ),
               const SizedBox(
@@ -95,7 +93,11 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 50,
               ),
-              ElevatedButtonCustom(description: "Login"),
+              const ElevatedButtonCustom(
+                description: "Login",
+                vertical: 25,
+                horizontal: 100,
+              ),
               const SizedBox(
                 height: 40,
               ),
