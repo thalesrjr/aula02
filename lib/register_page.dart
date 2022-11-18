@@ -95,7 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     width: MediaQuery.of(context).size.width * 0.4,
                     child: RadioListTile<SingingCharacter>(
                         value: SingingCharacter.feminino,
-                        title: Text("feminino"),
+                        title: const Text("feminino"),
                         groupValue: genero,
                         onChanged: (SingingCharacter? topera) {
                           setState(() {
@@ -107,7 +107,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     width: MediaQuery.of(context).size.width * 0.4,
                     child: RadioListTile<SingingCharacter>(
                         value: SingingCharacter.masculino,
-                        title: Text("masculino"),
+                        title: const Text("masculino"),
                         groupValue: genero,
                         onChanged: (SingingCharacter? topera) {
                           setState(() {
@@ -176,9 +176,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.48,
                     child: TextFormFieldCustom(
-                        label: "email@senai.com.br",
+                        label: "Cidade",
                         description: "Ex: palmas",
                         prefixIcon: const Icon(
                           Icons.location_city_outlined,
@@ -187,10 +187,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         )),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   Container(
-                      width: MediaQuery.of(context).size.width * 0.35,
+                      width: MediaQuery.of(context).size.shortestSide * 0.38,
                       child: TextFormFieldCustom(
                         label: "Estado",
                         description: "Ex: To",
